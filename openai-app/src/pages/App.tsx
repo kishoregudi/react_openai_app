@@ -1,8 +1,8 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import reactLogo from '../assets/react.svg';
+import viteLogo from '/vite.svg';
+import '../styles/App.css';
 
-function App() {
+export default function App() {
   return (
     <>
       <div>
@@ -13,9 +13,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1 className=''>Azure Open AI + Vite + React cla</h1>
+      <h1 className=''>Azure Open AI + Vite + React</h1>
     </>
   )
 }
-
-export default App

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { OpenAI } from './common/OpenAIHelper';
-import AzureOpenAIDetails from "./common/OpenAIHelper";
-import './App.css';
+import { OpenAI } from '../common/OpenAIHelper';
+import AzureOpenAIDetails from "../common/OpenAIHelper";
+import '../styles/App.css';
 
 const openaiDetails: AzureOpenAIDetails = {
     endpoint: "https://cpmplusai.openai.azure.com/",
@@ -9,7 +9,7 @@ const openaiDetails: AzureOpenAIDetails = {
     deployment: "GPT35TurboInstruct",
 };
 
-function InputBox() {
+export default function InputBox() {
     // State to manage the value of the input
     const [inputValue, setInputValue] = useState('');
     const [query, setQueryValue] = useState('');
@@ -55,5 +55,3 @@ function InputBox() {
         </div>
     );
 }
-
-export default InputBox;

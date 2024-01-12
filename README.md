@@ -1,1 +1,0 @@
-# react_openai_app
