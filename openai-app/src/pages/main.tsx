@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
-import InputBox from '../components/input.tsx';
-import Footer from '../components/Footer.tsx';
+import Footer from '../components/footer.tsx';
 import '../styles/index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />
-    <InputBox />
     <Footer/>
   </React.StrictMode>,
 )
