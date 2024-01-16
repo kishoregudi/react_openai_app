@@ -13,6 +13,7 @@ const Header: React.FC = () => {
                     <Navbar.Brand as={Link} to='/home'>
                         {/* <img src={reactLogo} className="logo react" alt="React logo"/> */}
                         <img src={reactLogo} alt="React logo" className="d-inline-block align-top logo.react:hover" />
+                        <Navbar.Text>Test Generator</Navbar.Text>
                     </Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link as={Link} to='/home'>Home</Nav.Link>
