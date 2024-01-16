@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
 import PrimaryButton from './button';
 import TextAreaInput from './textArea';
 import AzureOpenAIDetails, { OpenAI } from '../common/OpenAIHelper';
+import { Container, Row, Col, Form } from 'react-bootstrap';
+import ChartResults from './chatResults';
 
 //TODO: Remove once we have a proper solution to read the secrets from the Azure KeyVault
 const openaiDetails: AzureOpenAIDetails = {
@@ -11,11 +12,7 @@ const openaiDetails: AzureOpenAIDetails = {
     deployment: "GPT35TurboInstruct",
 };
 
-interface chatQueryFormProps {
-    onSubmit: (formData: { textAreaValue: string }) => void;
-}
-
-const ChatQueryForm: React.FC<chatQueryFormProps> = ({ onSubmit }) => {
+const ChatQueryForm: React.FC = () => {
     const [textAreaValue, setTextAreaValue] = useState<string>('');
     const [query, setQueryValue] = useState('');
     const [result, setResult] = useState<string>();
@@ -27,7 +24,6 @@ const ChatQueryForm: React.FC<chatQueryFormProps> = ({ onSubmit }) => {
 
     const handleFormSubmit = async (e: any) => {
         e.preventDefault();
-        onSubmit({ textAreaValue });
     };
 
     const handleButtonClick = async () => {
@@ -39,28 +35,33 @@ const ChatQueryForm: React.FC<chatQueryFormProps> = ({ onSubmit }) => {
         setResult(resultValue.join(','));
         setTextAreaValue('');
         setPlaceholder('Entry your query here...');
-        onSubmit({ textAreaValue });
     };
 
     return (
-        <div>
-            <Form onSubmit={handleFormSubmit}>
-                <TextAreaInput label='Query'
-                    value={textAreaValue}
-                    areaLabel='InputQuery'
-                    id='inputQuery'
-                    placeholder={placeholder}
-                    rows={10}
-                    cols={50}
-                    onChange={handleTextAreaChange} />
-                <br></br>
-                <PrimaryButton label="Submit" onClick={handleButtonClick} />
-            </Form>
-            <br></br>
-            <p>Your Query: {query}</p>
-            <br></br>
-            <p>Result: {result}</p>
-        </div>
+        <Container>
+            <Row>
+                <Col md={6}>
+                    <div>
+                        <Form onSubmit={handleFormSubmit}>
+                            <TextAreaInput label='Query'
+                                value={textAreaValue}
+                                areaLabel='InputQuery'
+                                id='inputQuery'
+                                placeholder={placeholder}
+                                rows={10}
+                                cols={50}
+                                onChange={handleTextAreaChange} />
+                            <br></br>
+                            <PrimaryButton label="Submit" onClick={handleButtonClick} />
+                        </Form>
+                        <br></br>
+                    </div>
+                </Col>
+                <Col>
+                    <ChartResults query={query} result={result} />
+                </Col>
+            </Row>
+        </Container>
     );
 };
 

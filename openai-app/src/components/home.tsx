@@ -1,11 +1,11 @@
-// components/Home.tsx
-
 import React from 'react';
+
 const Home: React.FC = () => {
     return (
         <div>
+            <br></br>
             <h1>Home Page</h1>
-            <p>Welcome Home !!!</p>
+            <p>Welcome to Open AI App to generate Functional Test Cases for Ability History user stories</p>
         </div>
     );
 };

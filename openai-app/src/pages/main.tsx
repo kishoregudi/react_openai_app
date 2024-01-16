@@ -7,7 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
-    <Footer/>
+    <div style={{ backgroundColor: '#f0f0f0', minHeight: '100vh' }}>
+      <App />
+      <Footer />
+    </div>
   </React.StrictMode>,
 )

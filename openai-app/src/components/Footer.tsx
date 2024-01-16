@@ -1,15 +1,17 @@
+import { Container, Navbar } from "react-bootstrap";
+
 const Footer: React.FC = () => {
-    return (
-        <footer>
-            <hr className="mt-5 mb-4" />
-            <div className="text-center p-3">
-            <p className="text-muted">
-                Created by Kishore.
-            </p>
-                © 2024 Copyright: MIT License
-            </div>
-        </footer>
-    );
+    return (<>
+        <div>
+            <Navbar bg="dark" variant="dark" fixed="bottom">
+                <Container>
+                    <Navbar.Text>
+                        © Kishore Babu Gudi {new Date().getFullYear()}
+                    </Navbar.Text>
+                </Container>
+            </Navbar>
+        </div>
+    </>)
 };
 
 export default Footer;
